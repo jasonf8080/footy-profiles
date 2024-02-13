@@ -1,0 +1,265 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --primary-color: #081638;
+  --secondary-color: #1C2847;
+  --secondary-lighter-color: #263763;;
+  --purple-color: #986EEB;
+  --blue-color: #2226AE;
+}
+
+
+
+body {
+  /* font-family: 'Nunito Sans', sans-serif; */
+  font-family: 'Urbanist', sans-serif;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.back-btn:hover{
+  background: var(--purple-color);
+}
+
+@media(max-width: 600px){
+  .back-btn:hover {
+      background: var(--secondary-color);
+    }
+}
+
+
+/* Navbar & Footer */
+
+.navbar, .footer{
+  position: relative;
+  height: 15vh;
+}
+
+
+.navbar .triangle-left {
+  width: 0;
+  height: 0;
+  border-right: 70vw solid transparent;
+  /* Half of the viewport width */
+  border-top: 15vh solid var(--purple-color);
+  /* Height of the parent element */
+  position: absolute;
+  bottom: 0;
+  transform: translate(1);
+  z-index: 99;
+}
+
+.navbar .triangle-right {
+  width: 0;
+  height: 0;
+  border-left: 70vw solid transparent;
+  /* Half of the viewport width */
+  border-top: 15vh solid var(--secondary-color);
+  /* Height of the parent element */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(1);
+}
+
+
+
+
+
+.footer .triangle-left {
+  width: 0;
+  height: 0;
+  border-right: 70vw solid transparent;
+  /* Half of the viewport width */
+  border-bottom: 15vh solid var(--secondary-color);
+  /* Height of the parent element */
+  position: absolute;
+  bottom: 0;
+
+  
+}
+
+.footer .triangle-right {
+  width: 0;
+  height: 0;
+  border-left: 70vw solid transparent;
+  /* Half of the viewport width */
+  border-bottom: 15vh solid var(--blue-color);
+  /* Height of the parent element */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.container{
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.sm-container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.box {
+  background: var(--secondary-color);
+  background: linear-gradient(260.3deg, var(--secondary-color) 100%, var(--secondary-lighter-color) 100%);
+  padding: 40px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  /* Set a z-index value for the .box element */
+}
+
+.league-button:disabled{
+  cursor: not-allowed;
+}
+
+
+.read-more-box{
+  padding-bottom: 120px !important;
+}
+
+
+
+
+
+
+.text-el, .img-el, .roster-el, .card-el {
+  position: relative;
+  min-width: 100%;
+  /* Makes the ::after element able to cover the provided element */
+}
+
+.loading.league-button::after,
+.loading .card-el::after,
+.loading .text-el::after,
+.loading .img-el::after,
+.loading .roster-el::after,
+.roster-img-el::after{
+  content: '';
+  position: absolute;
+  height: 100%;
+  min-height: 25px;
+  min-width: 100%;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: linear-gradient(90deg, rgb(10, 22, 85) 25%, #000000 50%, rgb(9, 28, 87)75%);
+  background-size: 200% 100%;
+  animation: skeleton-loader 1.5s infinite;
+  border-radius: 5px; /* Default */
+}
+
+
+
+.loading .card-el::after{
+  border-radius: 12px; /* Ensures there is no bottom radius */
+}
+
+.card-el {
+  min-height: 140px !important;
+  /* min-height: 180px !important;
+  max-height: 180px !important; */
+  /* Ensures that if loading or standby the img container is one size */
+
+}
+
+.loading .text-el::after{
+  min-height: 105%; /* Ensures whole element is covered when loading */
+}
+
+.img-el{
+  min-height: 300px !important; /* Ensures the whole image is covered */
+}
+
+
+.roster-el{
+  min-height: 60px !important; 
+  max-height: 60px !important; 
+  /* Sets height of the element equal to the img inside */
+}
+
+
+@keyframes skeleton-loader {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+p span{
+  font-weight: 700 !important;
+  margin-right: 5px;
+}
+
+.bold{
+  font-weight: 700 !important;
+}
+
+.roster-item:hover p{
+ text-decoration: underline;
+}
+
+.roster-item:hover .roster-item-hover, .card-el:hover{
+  background: var(--purple-color) !important;
+}
+
+
+
+
+@media(max-width: 1024px){
+
+ 
+}
+
+@media(max-width: 768px) {
+  .sm-container{
+    max-width: 90%;
+  }
+
+
+   
+}
+
+@media(max-width: 500px) {
+  .box{
+    padding: 30px;
+  }
+
+    .img-el {
+      min-height: 250px !important;
+      /* Ensures the whole image is covered */
+    }
+
+    .back-btn:hover {
+      background: var(--purple-color);
+    }
+
+      .card-el:hover {
+        background: var(--secondary-color) !important;
+      }
+    
+}
+
+@media(max-width: 320px) {
+
+}
